@@ -1,27 +1,10 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
-import type { NextAuthConfig } from "next-auth";
 
-export const authConfig: NextAuthConfig = {
+export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: {
     signIn: "/login",
-  },
-  callbacks: {
-    jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.tipo = (user as any).tipo;
-      }
-      return token;
-    },
-    session({ session, token }) {
-      if (token) {
-        session.user.id = token.id as string;
-        (session.user as any).tipo = token.tipo;
-      }
-      return session;
-    },
   },
   providers: [
     Google({
@@ -29,17 +12,29 @@ export const authConfig: NextAuthConfig = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "placeholder",
     }),
     Credentials({
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Contraseña", type: "password" },
+      },
       async authorize(credentials) {
-        const { email, password } = credentials as {
-          email: string;
-          password: string;
-        };
-        if (!email || !password) return null;
-        // TODO: implementar con Vercel Postgres
+        if (!credentials?.email || !credentials?.password) return null;
+        // TODO: conectar con Vercel Postgres
         return null;
       },
     }),
   ],
-};
-
-export const { handlers, auth, signIn, signOut } = NextAuth(authConfig);
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    session({ session, token }) {
+      if (session.user && token.id) {
+        session.user.id = token.id as string;
+      }
+      return session;
+    },
+  },
+});
