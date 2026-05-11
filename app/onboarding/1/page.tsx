@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { PajaroManitas } from "@/components/shared/PajaroManitas";
 
 function IconoDinero() {
   return (
@@ -65,10 +64,8 @@ export default function Onboarding1() {
 
       {/* Área superior — pájaro + texto */}
       <div className="flex-1 flex flex-col items-center justify-center px-6 pt-14 pb-6">
-        <PajaroManitas className="w-36 h-44" />
-
-        <h1 className="text-3xl font-black tracking-tight text-gray-900 mt-3">
-          Manitas<span className="text-[#1A2E3A]">Go</span>
+        <h1 className="text-5xl font-black tracking-tight text-gray-900">
+          Manitas<span className="text-[#25B8B8]">Go</span>
         </h1>
 
         <p className="text-gray-600 text-center text-sm leading-relaxed mt-3 max-w-xs">
