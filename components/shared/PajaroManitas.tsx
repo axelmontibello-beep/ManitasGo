@@ -1,49 +1,73 @@
-/* Pájaro Manitas — woodpecker mascot, estilo flat cartoon */
-export function PajaroManitas({ className = "w-40 h-48" }: { className?: string }) {
+export function PajaroManitas({ className = "w-36 h-44" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 140 190" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg viewBox="0 0 100 138" xmlns="http://www.w3.org/2000/svg" className={className} aria-label="Pájaro ManitasGo">
 
-      {/* ---- CRESTA (detrás de la cabeza) ---- */}
-      <path d="M 62 42 L 56 24 L 64 38 L 66 18 L 70 36 L 75 14 L 78 36 L 84 22 L 82 40" fill="#F97316" />
+      {/* ── CRESTA: acento teal detrás ── */}
+      <path d="M 34 22 C 24 8 32 -2 40 6 C 32 12 34 18 36 22 Z" fill="#25B8B8" />
 
-      {/* ---- COLA ---- */}
-      <path d="M 52 148 L 36 172 L 46 158 L 40 178 L 54 162 L 52 180 L 64 165" fill="#1A2E3A" />
+      {/* ── CRESTA: forma naranja principal ── */}
+      <path
+        d="M 38 26
+           C 26 14 18 0  28  4
+           C 20 14 26 18 32 22
+           C 22  8 30  2 40 10
+           C 32  6 36 12 40 20
+           C 34  8 42  6 46 18
+           Z"
+        fill="#F4633A"
+      />
 
-      {/* ---- CUERPO ---- */}
-      <ellipse cx="82" cy="130" rx="38" ry="46" fill="#1A2E3A" />
+      {/* ── CUERPO principal (oscuro) ── */}
+      <path
+        d="M 28 58
+           C  8 58  4 80  8 102
+           C 12 122 24 138 44 138
+           C 58 138 64 128 60 115
+           C 56 102 48  84 52  70
+           C 56  58 44 56 28 58 Z"
+        fill="#2D4A57"
+      />
 
-      {/* Panza blanca */}
-      <ellipse cx="90" cy="138" rx="22" ry="32" fill="#FFFFFF" />
+      {/* ── CABEZA (círculo oscuro) ── */}
+      <circle cx="52" cy="44" r="28" fill="#2D4A57" />
 
-      {/* ---- ALA izquierda ---- */}
-      <path d="M 46 108 C 30 118 26 148 48 155 C 56 138 58 120 68 110 Z" fill="#0F1F2A" />
+      {/* ── PANZA blanca ── */}
+      <ellipse cx="56" cy="102" rx="22" ry="30" fill="#FFFFFF" />
 
-      {/* ---- CABEZA ---- */}
-      <circle cx="88" cy="70" r="36" fill="#1A2E3A" />
+      {/* ── ZONA BLANCA cara / mejilla ── */}
+      <ellipse cx="64" cy="52" rx="16" ry="20" fill="#FFFFFF" />
 
-      {/* Mejilla blanca */}
-      <ellipse cx="102" cy="78" rx="14" ry="12" fill="#FFFFFF" />
+      {/* ── PICO superior ── */}
+      <path d="M 74 46 L 100 38 L 74 54 Z" fill="#F5A823" />
+      {/* ── PICO inferior (sombra) ── */}
+      <path d="M 74 54 L 96 51 L 74 60 Z" fill="#D4901A" />
 
-      {/* ---- OJO ---- */}
-      <circle cx="104" cy="66" r="14" fill="#FFFFFF" />
-      <circle cx="106" cy="67" r="8" fill="#1A2E3A" />
-      <circle cx="109" cy="64" r="3" fill="#FFFFFF" />
+      {/* ── OJO: fondo blanco ── */}
+      <circle cx="66" cy="40" r="12" fill="#FFFFFF" />
+      {/* ── OJO: pupila ── */}
+      <circle cx="66" cy="41" r="5.5" fill="#1A2B34" />
+      {/* ── OJO: brillo ── */}
+      <circle cx="69" cy="38" r="2" fill="#FFFFFF" />
 
-      {/* ---- PICO ---- */}
-      {/* Pico superior */}
-      <path d="M 118 70 L 140 65 L 118 76 Z" fill="#F59E0B" />
-      {/* Pico inferior */}
-      <path d="M 118 76 L 136 74 L 118 82 Z" fill="#D97706" />
-
-      {/* ---- DETALLE ALA (plumas) ---- */}
-      <path d="M 52 130 Q 60 120 72 125" stroke="#2D4A5A" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M 50 140 Q 58 130 70 135" stroke="#2D4A5A" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M 50 150 Q 58 140 70 145" stroke="#2D4A5A" strokeWidth="2" fill="none" strokeLinecap="round" />
-
-      {/* ---- PATAS ---- */}
-      <path d="M 76 172 L 72 185 M 72 185 L 62 188 M 72 185 L 70 192" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M 90 172 L 90 185 M 90 185 L 80 188 M 90 185 L 96 192" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" />
+      {/* ── LÍNEAS ALA (teal) ── */}
+      <path d="M 16 88  Q 30 82 40 78" stroke="#25B8B8" strokeWidth="3.8" fill="none" strokeLinecap="round" />
+      <path d="M 14 102 Q 28 96 38 92" stroke="#25B8B8" strokeWidth="3.8" fill="none" strokeLinecap="round" />
+      <path d="M 14 116 Q 28 110 38 106" stroke="#25B8B8" strokeWidth="3.8" fill="none" strokeLinecap="round" />
 
     </svg>
+  );
+}
+
+export function LogoManitasGo({ className = "" }: { className?: string }) {
+  return (
+    <div className={`flex items-center gap-1 ${className}`}>
+      <PajaroManitas className="w-9 h-11" />
+      <span
+        className="text-[22px] font-black tracking-tight leading-none"
+        style={{ color: "#2D4A57", fontFamily: "Inter, system-ui, sans-serif" }}
+      >
+        ManitasGo
+      </span>
+    </div>
   );
 }
