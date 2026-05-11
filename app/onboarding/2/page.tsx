@@ -1,61 +1,54 @@
 import Link from "next/link";
-import { HogarIlustracion } from "@/components/shared/HogarIlustracion";
+import { LogoManitasGo } from "@/components/shared/LogoManitasGo";
+import { IlustracionHogarista } from "@/components/shared/IlustracionHogarista";
 
-function Bullet({ text }: { text: string }) {
+function CheckBullet({ text }: { text: string }) {
   return (
-    <div className="flex items-start gap-3">
-      <div className="mt-0.5 w-5 h-5 rounded-full bg-[#1D9E75]/20 flex items-center justify-center flex-shrink-0">
-        <svg className="w-3 h-3 text-[#1D9E75]" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+    <div className="flex items-center gap-3">
+      <div className="w-5 h-5 rounded bg-gray-800 flex items-center justify-center flex-shrink-0">
+        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
         </svg>
       </div>
-      <p className="text-gray-300 text-sm leading-relaxed">{text}</p>
+      <p className="text-gray-700 text-sm">{text}</p>
     </div>
   );
 }
 
 function Dot({ active }: { active: boolean }) {
   return (
-    <div
-      className={`rounded-full transition-all ${
-        active ? "w-6 h-2.5 bg-[#1D9E75]" : "w-2.5 h-2.5 bg-white/30"
-      }`}
-    />
+    <div className={`rounded-full transition-all duration-300 ${active ? "w-6 h-2 bg-gray-800" : "w-2 h-2 bg-gray-300"}`} />
   );
 }
 
 export default function Onboarding2() {
   return (
-    <div className="min-h-dvh flex flex-col">
-      {/* Área de ilustración */}
-      <div className="flex-1 flex flex-col items-center justify-center gap-4 px-6 pt-12 pb-6">
-        {/* Badge */}
-        <div className="px-4 py-1.5 rounded-full bg-[#1D9E75]/20 border border-[#1D9E75]/30">
-          <span className="text-[#1D9E75] text-xs font-semibold uppercase tracking-widest">Hogarista</span>
-        </div>
-
-        {/* Ilustración */}
-        <div className="relative">
-          <div className="absolute inset-0 rounded-full bg-[#1D9E75]/10 blur-2xl scale-150" />
-          <HogarIlustracion className="w-52 h-52 relative drop-shadow-2xl" />
-        </div>
+    <div className="min-h-dvh flex flex-col bg-white">
+      {/* Header */}
+      <div className="px-6 pt-12 pb-4">
+        <LogoManitasGo />
       </div>
 
-      {/* Card inferior */}
-      <div className="bg-[#252538] rounded-t-3xl px-6 pt-7 pb-8 shadow-2xl">
-        <h2 className="text-xl font-bold text-white mb-1">Para Hogaristas</h2>
-        <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-          ¿Necesitás que te hagan algo en casa? Vos ponés las condiciones.
+      {/* Ilustración */}
+      <div className="px-4">
+        <IlustracionHogarista className="w-full h-56" />
+      </div>
+
+      {/* Contenido */}
+      <div className="flex-1 px-6 pt-2 pb-8 flex flex-col">
+        <h2 className="text-xl font-bold text-gray-900 mb-1">Hogarista</h2>
+        <p className="text-gray-500 text-sm mb-5 leading-relaxed">
+          Necesita ayuda con alguna tarea dentro de tu casa.
         </p>
 
-        <div className="space-y-4 mb-8">
-          <Bullet text="Publicá lo que necesitás en segundos" />
-          <Bullet text="Fijás el precio — no al revés" />
-          <Bullet text="Accedés a Manitas cercanos con buenas valoraciones" />
+        <div className="space-y-3.5 flex-1">
+          <CheckBullet text="Publica tus necesidades" />
+          <CheckBullet text="Fija el precio" />
+          <CheckBullet text="Elige un experto para realizar el trabajo" />
         </div>
 
-        {/* Dots de progreso */}
-        <div className="flex items-center justify-center gap-2 mb-6">
+        {/* Dots */}
+        <div className="flex items-center justify-center gap-2 mt-6 mb-5">
           <Dot active={false} />
           <Dot active={true} />
           <Dot active={false} />
@@ -65,23 +58,28 @@ export default function Onboarding2() {
         <div className="flex gap-3">
           <Link
             href="/onboarding/1"
-            className="flex items-center justify-center gap-2 flex-1 border border-white/20 hover:border-white/40 active:scale-95 transition-all text-white py-4 rounded-2xl font-semibold text-base"
+            className="flex items-center justify-center gap-2 flex-1 border border-gray-300 hover:border-gray-400 active:scale-95 transition-all text-gray-700 py-4 rounded-2xl font-semibold text-base"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
             </svg>
             Volver
           </Link>
           <Link
             href="/onboarding/3"
-            className="flex items-center justify-center gap-2 flex-[2] bg-[#1D9E75] hover:bg-[#178563] active:scale-95 transition-all text-white py-4 rounded-2xl font-semibold text-base"
+            className="flex items-center justify-center gap-2 flex-[2] bg-gray-900 hover:bg-gray-800 active:scale-95 transition-all text-white py-4 rounded-2xl font-semibold text-base"
           >
             Siguiente
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
           </Link>
         </div>
+
+        {/* Cerrar */}
+        <Link href="/login" className="block text-center text-gray-400 text-sm mt-4 py-1">
+          Cerrar
+        </Link>
       </div>
     </div>
   );

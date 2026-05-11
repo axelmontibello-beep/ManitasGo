@@ -4,6 +4,6 @@ export default function OnboardingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-dvh bg-[#1C1C2E] text-white">{children}</div>
+    <div className="min-h-dvh bg-white text-gray-900">{children}</div>
   );
 }
