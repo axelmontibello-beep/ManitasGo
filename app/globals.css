@@ -2,22 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* ─── Design Tokens ─────────────────────────────────────── */
+:root {
+  --color-primary-50:  #E6F9F4;
+  --color-primary-100: #C9F0E1;
+  --color-primary-200: #8FE0C3;
+  --color-primary-500: #13C296;
+  --color-primary-600: #0FA37D;
+  --color-primary-700: #0B7A5E;
+
+  --color-secondary-50:  #FFF1E8;
+  --color-secondary-100: #FFD7C0;
+  --color-secondary-400: #F38232;
+  --color-secondary-500: #FF5C04;
+  --color-secondary-600: #E04E00;
+  --color-secondary-700: #BF4200;
+
+  --brand:         var(--color-primary-500);
+  --brand-hover:   var(--color-primary-600);
+  --brand-pressed: var(--color-primary-700);
+  --brand-focus:   var(--color-primary-200);
+  --brand-soft:    var(--color-primary-50);
+
+  --text-strong:   #000000;
+  --text-default:  #373737;
+  --text-muted:    #7B7B7B;
+  --text-subtle:   #9CA3AF;
+  --text-inverse:  #FFFFFF;
+  --text-disabled: #BCBCBC;
+
+  --surface-base:    #FFFFFF;
+  --surface-subtle:  #FAFAFA;
+  --surface-muted:   #F3F4F6;
+  --surface-alt:     #F2F2F2;
+  --surface-dark:    #292929;
+  --surface-overlay: rgba(17,25,40,0.55);
+
+  --border-default: #DEE2E6;
+  --border-soft:    #DFE4EA;
+  --border-strong:  #373737;
+  --border-card:    #E5E8EB;
+
+  --color-success-50:  #DAF8E6;
+  --color-success-500: #22AD5C;
+  --color-success-600: #1A8E48;
+
+  --color-warning-50:  #FFFBEB;
+  --color-warning-500: #FBBF24;
+  --color-warning-600: #D97706;
+
+  --color-danger-50:  #FEF3F3;
+  --color-danger-100: #FEEBEB;
+  --color-danger-400: #F56060;
+  --color-danger-500: #F23030;
+  --color-danger-700: #E10E0E;
+
+  --font-display: var(--font-quicksand), "Quicksand", sans-serif;
+  --font-body:    var(--font-inter), "Inter", system-ui, sans-serif;
+
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-pill: 999px;
+
+  --shadow-xs:   0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm:   0 1px 3px rgba(166,175,195,0.40);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg:   0 8px 24px rgba(36,16,167,0.15);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.10);
+
+  --ease-out:       cubic-bezier(0.16,1,0.3,1);
+  --duration-fast:  120ms;
+  --duration-base:  200ms;
+}
 
 @layer base {
-  * {
+  *, *::before, *::after {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
   }
 
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-white text-[#373737];
     max-width: 390px;
     margin: 0 auto;
     min-height: 100dvh;
@@ -39,5 +113,8 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+  .font-display {
+    font-family: var(--font-display);
   }
 }

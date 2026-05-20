@@ -1,0 +1,178 @@
+// Datos de demostración para la Fase 1 (sin base de datos real)
+// En Fase 2 estos se reemplazan por consultas a Vercel Postgres
+
+export const mockUser = {
+  id:         "demo-hogarista",
+  nombre:     "María",
+  apellidos:  "García López",
+  email:      "maria@ejemplo.com",
+  tipo:       "hogarista" as const,
+  verificado: true,
+  saldo:      150.00,
+  rating:     4.8,
+  direccion:  "Calle Gran Vía 28, Madrid",
+  foto_url:   null as string | null,
+};
+
+export const mockTareas = [
+  {
+    id:          "tarea-1",
+    titulo:      "Reparar grifo de la cocina",
+    descripcion: "El grifo de la cocina gotea constantemente. Necesita revisión y probable cambio de junta.",
+    categoria:   "Fontanería",
+    tipo_precio: "fijo" as const,
+    precio_fijo: 45.00,
+    precio_min:  null,
+    precio_max:  null,
+    estado:      "pendiente" as const,
+    direccion:   "Calle Gran Vía 28, Madrid",
+    latitud:     40.4200,
+    longitud:    -3.7025,
+    solicitudes: 3,
+    created_at:  new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id:          "tarea-2",
+    titulo:      "Instalar lámpara de techo en el salón",
+    descripcion: "Tengo una lámpara nueva de IKEA y necesito que la instalen. El punto de luz ya existe.",
+    categoria:   "Instalaciones",
+    tipo_precio: "rango" as const,
+    precio_fijo: null,
+    precio_min:  20.00,
+    precio_max:  50.00,
+    estado:      "en_progreso" as const,
+    direccion:   "Calle Gran Vía 28, Madrid",
+    latitud:     40.4200,
+    longitud:    -3.7025,
+    solicitudes: 1,
+    created_at:  new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id:          "tarea-3",
+    titulo:      "Pintar habitación pequeña",
+    descripcion: "Habitación de 10m² necesita pintura blanca en paredes y techo.",
+    categoria:   "Reparaciones y Mantenimiento",
+    tipo_precio: "rango" as const,
+    precio_fijo: null,
+    precio_min:  80.00,
+    precio_max:  150.00,
+    estado:      "completada" as const,
+    direccion:   "Calle Gran Vía 28, Madrid",
+    latitud:     40.4200,
+    longitud:    -3.7025,
+    solicitudes: 5,
+    created_at:  new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+];
+
+export const mockPropuestas = [
+  {
+    id:              "prop-1",
+    tarea_id:        "tarea-1",
+    manitas_id:      "manitas-1",
+    nombre:          "Carlos Ruiz",
+    foto_url:        null as string | null,
+    rating:          4.9,
+    especialidad:    "Fontanería",
+    mensaje:         "Hola, tengo 8 años de experiencia en fontanería. Puedo ir mañana por la mañana si te viene bien.",
+    precio_propuesto: 45.00,
+    estado:          "pendiente" as const,
+    created_at:      new Date(Date.now() - 1 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id:              "prop-2",
+    tarea_id:        "tarea-1",
+    manitas_id:      "manitas-2",
+    nombre:          "Luis Fernández",
+    foto_url:        null as string | null,
+    rating:          4.6,
+    especialidad:    "Fontanería",
+    mensaje:         "Buenos días, puedo revisar el grifo esta misma tarde. Trabajo rápido y limpio.",
+    precio_propuesto: 40.00,
+    estado:          "pendiente" as const,
+    created_at:      new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id:              "prop-3",
+    tarea_id:        "tarea-1",
+    manitas_id:      "manitas-3",
+    nombre:          "Ana Martínez",
+    foto_url:        null as string | null,
+    rating:          5.0,
+    especialidad:    "Fontanería y Gas",
+    mensaje:         "Técnico certificado. Incluyo garantía de 6 meses en la reparación.",
+    precio_propuesto: 55.00,
+    estado:          "pendiente" as const,
+    created_at:      new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
+  },
+];
+
+export const mockMensajes = [
+  {
+    id:         "chat-1",
+    tarea_id:   "tarea-2",
+    tarea_titulo: "Instalar lámpara de techo en el salón",
+    manitas: {
+      id:      "manitas-1",
+      nombre:  "Carlos Ruiz",
+      foto_url: null as string | null,
+      online:  true,
+    },
+    ultimo_mensaje: "Perfecto, nos vemos a las 10h",
+    hora:           "10:32",
+    no_leidos:      2,
+  },
+  {
+    id:         "chat-2",
+    tarea_id:   "tarea-3",
+    tarea_titulo: "Pintar habitación pequeña",
+    manitas: {
+      id:      "manitas-2",
+      nombre:  "Luis Fernández",
+      foto_url: null as string | null,
+      online:  false,
+    },
+    ultimo_mensaje: "Trabajo terminado, gracias por confiar en mí",
+    hora:           "Ayer",
+    no_leidos:      0,
+  },
+];
+
+export const mockReviews = [
+  {
+    id:              "rev-1",
+    autor_nombre:    "Carlos Ruiz",
+    autor_foto:      null as string | null,
+    especialidad:    "Fontanería",
+    estrellas:       5,
+    comentario:      "María es una cliente excelente. Muy clara explicando lo que necesitaba y muy puntual. Totalmente recomendable.",
+    created_at:      new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id:              "rev-2",
+    autor_nombre:    "Ana Martínez",
+    autor_foto:      null as string | null,
+    especialidad:    "Electricidad",
+    estrellas:       5,
+    comentario:      "Todo perfecto desde el primer momento. Pagó sin problemas y el espacio estaba listo para trabajar.",
+    created_at:      new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id:              "rev-3",
+    autor_nombre:    "Pedro Sánchez",
+    autor_foto:      null as string | null,
+    especialidad:    "Pintura",
+    estrellas:       4,
+    comentario:      "Buena clienta, muy amable. La tarea estaba bien descrita en la plataforma.",
+    created_at:      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+];
+
+export const mockMetodosPago = [
+  {
+    id:      "mp-1",
+    tipo:    "banco",
+    numero:  "0105****1234",
+    activo:  true,
+  },
+];
