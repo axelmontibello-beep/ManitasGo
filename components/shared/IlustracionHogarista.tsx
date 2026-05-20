@@ -7,7 +7,7 @@ export function IlustracionHogarista({ className = "w-full h-64" }: { className?
 
       {/* ---- SILLÓN ---- */}
       {/* Respaldo */}
-      <rect x="80" y="110" width="160" height="60" rx="16" fill="#1D9E75" />
+      <rect x="80" y="110" width="160" height="60" rx="16" fill="#13C296" />
       {/* Asiento */}
       <rect x="90" y="148" width="140" height="38" rx="10" fill="#178563" />
       {/* Brazo izquierdo */}
@@ -45,7 +45,7 @@ export function IlustracionHogarista({ className = "w-full h-64" }: { className?
       <path d="M 182 118 Q 202 112 212 120" stroke="#FCA5A5" strokeWidth="12" strokeLinecap="round" fill="none" />
       {/* Tablet */}
       <rect x="206" y="108" width="22" height="30" rx="4" fill="#374151" />
-      <rect x="208" y="111" width="18" height="22" rx="2" fill="#1D9E75" />
+      <rect x="208" y="111" width="18" height="22" rx="2" fill="#13C296" />
       {/* Icono app en tablet */}
       <rect x="211" y="114" width="6" height="6" rx="1" fill="white" opacity="0.8" />
       <rect x="219" y="114" width="5" height="6" rx="1" fill="white" opacity="0.8" />
@@ -61,7 +61,7 @@ export function IlustracionHogarista({ className = "w-full h-64" }: { className?
 
       {/* Estrella der */}
       <circle cx="252" cy="72" r="18" fill="#D1FAE5" />
-      <path d="M 252 60 L 254.5 68 L 263 68 L 256.5 73 L 259 81 L 252 76.5 L 245 81 L 247.5 73 L 241 68 L 249.5 68 Z" fill="#1D9E75" />
+      <path d="M 252 60 L 254.5 68 L 263 68 L 256.5 73 L 259 81 L 252 76.5 L 245 81 L 247.5 73 L 241 68 L 249.5 68 Z" fill="#13C296" />
 
       {/* Herramienta sup */}
       <circle cx="160" cy="26" r="16" fill="#E0E7FF" />

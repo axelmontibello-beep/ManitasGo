@@ -1,88 +1,77 @@
 import Link from "next/link";
-
-function IconoDinero() {
-  return (
-    <svg viewBox="0 0 52 52" className="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
-      {/* Billete */}
-      <rect x="4" y="14" width="44" height="18" rx="3" fill="#22C55E" />
-      <rect x="4" y="14" width="44" height="4" rx="3" fill="#16A34A" />
-      <circle cx="26" cy="23" r="5" fill="#16A34A" />
-      <circle cx="26" cy="23" r="3" fill="#DCFCE7" />
-      <rect x="7" y="19" width="4" height="8" rx="1" fill="#15803D" />
-      <rect x="41" y="19" width="4" height="8" rx="1" fill="#15803D" />
-      {/* Mano */}
-      <path d="M 10 30 Q 10 42 26 42 Q 42 42 44 32 L 38 30 Q 36 36 26 36 Q 16 36 14 30 Z" fill="#FBBF24" />
-      <path d="M 10 30 L 14 30 L 14 34 L 10 34 Z" fill="#F59E0B" />
-      {/* Dedos */}
-      <path d="M 14 28 Q 14 24 18 24 Q 20 24 20 27 L 20 30 L 14 30" fill="#FBBF24" />
-      <path d="M 20 26 Q 20 22 24 22 Q 26 22 26 25 L 26 30 L 20 30" fill="#FCD34D" />
-    </svg>
-  );
-}
-
-function IconoTrabajador() {
-  return (
-    <svg viewBox="0 0 52 52" className="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
-      {/* Casco */}
-      <path d="M 16 22 Q 16 10 26 10 Q 36 10 36 22 Z" fill="#F59E0B" />
-      <ellipse cx="26" cy="22" rx="14" ry="4" fill="#D97706" />
-      {/* Cara */}
-      <circle cx="26" cy="28" r="10" fill="#FBBF24" />
-      {/* Ojos */}
-      <circle cx="22" cy="27" r="2" fill="#1F2937" />
-      <circle cx="30" cy="27" r="2" fill="#1F2937" />
-      {/* Sonrisa */}
-      <path d="M 22 32 Q 26 35 30 32" stroke="#1F2937" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      {/* Cuerpo */}
-      <rect x="18" y="38" width="16" height="10" rx="4" fill="#F97316" />
-      {/* Cuello */}
-      <rect x="23" y="36" width="6" height="5" rx="2" fill="#FBBF24" />
-    </svg>
-  );
-}
-
-function BulletCard({ icon, text }: { icon: React.ReactNode; text: string }) {
-  return (
-    <div className="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-      <div className="flex-shrink-0">{icon}</div>
-      <p className="text-gray-700 text-sm leading-relaxed">{text}</p>
-    </div>
-  );
-}
+import { PajaroManitas } from "@/components/shared/PajaroManitas";
 
 function Dot({ active }: { active: boolean }) {
-  return active ? (
-    <div className="w-3 h-3 rounded-full bg-gray-800" />
-  ) : (
-    <div className="w-3 h-3 rounded-full border-2 border-gray-300" />
+  return (
+    <div
+      className="h-2 rounded-full transition-all duration-300"
+      style={{
+        width: active ? 24 : 8,
+        background: active ? "#13C296" : "#DEE2E6",
+      }}
+    />
+  );
+}
+
+function Bullet({ icon, text }: { icon: React.ReactNode; text: string }) {
+  return (
+    <div className="flex items-center gap-4 bg-white rounded-xl p-4 shadow-[0_1px_3px_rgba(0,0,0,0.08)] border border-[#E5E8EB]">
+      <div className="w-11 h-11 rounded-xl bg-[#E6F9F4] flex items-center justify-center flex-shrink-0">
+        {icon}
+      </div>
+      <p className="text-[#373737] text-sm leading-relaxed font-medium">{text}</p>
+    </div>
   );
 }
 
 export default function Onboarding1() {
   return (
-    <div className="min-h-dvh flex flex-col bg-gray-100">
+    <div className="min-h-dvh flex flex-col bg-[#F2F2F2]">
 
-      {/* Área superior — pájaro + texto */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 pt-14 pb-6">
-        <h1 className="text-5xl font-black tracking-tight text-gray-900">
-          Manitas<span className="text-[#25B8B8]">Go</span>
-        </h1>
+      {/* Área superior — pájaro centrado */}
+      <div className="flex-1 flex flex-col items-center justify-center px-6 pt-12 pb-4 gap-3">
+        <PajaroManitas className="w-36 h-44 drop-shadow-lg" />
 
-        <p className="text-gray-600 text-center text-sm leading-relaxed mt-3 max-w-xs">
-          Es la app donde publicas tareas del hogar y un manitas habilidoso las hace por ti.
-        </p>
+        <div className="text-center">
+          <h1 className="font-display font-bold text-3xl text-[#1A1A2E] tracking-tight">
+            ManitasGo
+          </h1>
+          <p className="text-[#7B7B7B] text-sm leading-relaxed mt-1 max-w-[260px] mx-auto">
+            La app donde publicas tareas del hogar y los mejores manitas las resuelven.
+          </p>
+        </div>
       </div>
 
       {/* Card blanca inferior */}
-      <div className="bg-white rounded-t-3xl px-5 pt-6 pb-8 shadow-2xl">
-        <div className="space-y-3 mb-6">
-          <BulletCard
-            icon={<IconoDinero />}
-            text="Tú propones el precio y un experto se postula para ayudarte."
+      <div className="bg-white rounded-t-3xl px-5 pt-6 pb-8 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+
+        <div className="flex flex-col gap-3 mb-6">
+          <Bullet
+            icon={
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M3 12L12 3l9 9" stroke="#13C296" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9" stroke="#13C296" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            }
+            text="Publica lo que necesitas en tu casa"
           />
-          <BulletCard
-            icon={<IconoTrabajador />}
-            text="Accede a tareas cerca de ti y postúlate según tu experiencia."
+          <Bullet
+            icon={
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="#13C296" strokeWidth="2"/>
+                <path d="M12 7v5l3 3" stroke="#13C296" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M9 6.5C9 5.12 10.34 4 12 4s3 1.12 3 2.5" stroke="#13C296" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            }
+            text="Fija el precio que quieres pagar"
+          />
+          <Bullet
+            icon={
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#13C296" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            }
+            text="Elige el manitas con mejores valoraciones"
           />
         </div>
 
@@ -96,16 +85,15 @@ export default function Onboarding1() {
         {/* Botón Siguiente */}
         <Link
           href="/onboarding/2"
-          className="flex items-center justify-center gap-2 w-full bg-gray-900 hover:bg-gray-800 active:scale-95 transition-all text-white py-4 rounded-full font-semibold text-base"
+          className="flex items-center justify-center gap-2 w-full bg-[#13C296] hover:bg-[#0FA37D] active:bg-[#0B7A5E] active:scale-[0.98] transition-all text-white py-3.5 rounded-full font-semibold text-base shadow-[0_4px_12px_rgba(19,194,150,0.35)]"
         >
           Siguiente
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
           </svg>
         </Link>
 
-        {/* Omitir */}
-        <Link href="/login" className="block text-center text-gray-400 text-sm mt-4 py-1">
+        <Link href="/login" className="block text-center text-[#9CA3AF] text-sm mt-3 py-1">
           Omitir
         </Link>
       </div>
